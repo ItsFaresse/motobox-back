@@ -29,7 +29,7 @@ public class userServiceImpl implements UserService {
         LOGGER.debug("create user = {}", user);
         User createUser = new User();
         createUser.setEmail(user.getEmail());
-        createUser.setPassword(user.getPassword());
+        createUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         createUser.setFirstName(user.getFirstName());
         createUser.setLastName(user.getLastName());
         createUser.setPhone(user.getPhone());
