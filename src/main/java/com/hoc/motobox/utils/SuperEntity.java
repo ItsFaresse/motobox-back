@@ -1,45 +1,58 @@
 package com.hoc.motobox.utils;
 
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
-public abstract class SuperEntity {
+//@Entity
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
+@MappedSuperclass
+public abstract class SuperEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected Long id;
 
-    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(insertable = true)
     private Date createdAt;
 
-    @Column(nullable = false, updatable = true)
-    private Date modifiedAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = true,insertable = false)
+    private Date updatedAt;
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
-        this.id =  id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Date getCreatedAt(){
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt){
-        this.createdAt =  createdAt;
+    private void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getModifiedAt(){
-        return modifiedAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setModifiedAt(Date modifiedAt){
-        this.modifiedAt =  modifiedAt;
+    private void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @PrePersist
+    void onCreate(){
+        this.setCreatedAt(new Date());
+    }
+
+    @PreUpdate
+    void onUpdate(){
+        this.setUpdatedAt(new Date());
     }
 }

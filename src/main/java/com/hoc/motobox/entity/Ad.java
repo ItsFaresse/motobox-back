@@ -39,16 +39,6 @@ public class Ad extends SuperEntity {
 
     @Column
     private Boolean is_active;
-/*
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-*/
 
     public String getTitle() {
         return title;

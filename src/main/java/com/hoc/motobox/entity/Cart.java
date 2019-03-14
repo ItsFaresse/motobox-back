@@ -1,29 +1,23 @@
 package com.hoc.motobox.entity;
 
 import com.hoc.motobox.utils.SuperEntity;
-import org.apache.catalina.User;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cart extends SuperEntity {
 
-    /*todo : sur le user car sinon on suprime le user
-     TODO comme la class etend SuperEntity comment on cible l'element id @Column()   "@Column(name = "ADDRESS_ID")"
-    @OneToOne(cascade = {
-            CascadeType.REMOVE,
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-    }, mappedBy = "user")
-    */
-
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "cart")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id")
     private  User user;
 
-    private Ad ad;
+
+    // Tomemory On peut faire du bi-directionnele ctd untiliser @Column mappedBy = "name)" et pareil dans l'Entity referencée
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn
+    private List<Ad> ad;
+
 
     public User getUser(){
         return user;
@@ -33,11 +27,11 @@ public class Cart extends SuperEntity {
         this.user =  user;
     }
 
-    public Ad getAd(){
+    public List<Ad> getAd() {
         return ad;
     }
 
-    public void setAd(Ad ad){
+    public void setAd(List<Ad> ad) {
         this.ad = ad;
     }
 }

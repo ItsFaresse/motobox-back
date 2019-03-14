@@ -2,8 +2,7 @@ package com.hoc.motobox.entity;
 
 import com.hoc.motobox.utils.SuperEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 public class Address extends SuperEntity {

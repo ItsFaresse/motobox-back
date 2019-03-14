@@ -1,5 +1,7 @@
 package com.hoc.motobox.entity;
 
+import com.hoc.motobox.utils.SuperEntity;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class User {
+public class User extends SuperEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     @Column(nullable = false)
     private String email;
 
@@ -31,19 +30,8 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    private Cart cart;
 
     /**
      * @return the email
@@ -129,4 +117,11 @@ public class User {
         this.address = address;
     }
 
+    public Cart getCart(){
+        return cart;
+    }
+
+    public void setCart(Cart cart){
+         this.cart = cart;
+    }
 }
