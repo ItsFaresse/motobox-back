@@ -10,13 +10,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @param <T>
  */
 public interface SuperRestService<T> {
-    public JpaRepository<T, Long> getDao();
+	public JpaRepository<T, Long> getDao();
 
     /**
      *
      * @return
      */
-    default public List<T> findAll() {
+    default  public List<T> findAll(){
         return getDao().findAll();
     }
 
@@ -25,24 +25,24 @@ public interface SuperRestService<T> {
      * @param id
      * @return @override function findById() si n'est pas trouvé
      */
-    default public Optional<T> findById(Long id) {
+    default public Optional<T> findById(Long id){
         return getDao().findById(id);
     }
 
-    /**
-     * 
-     * @param t
-     * @return
-     */
-    default public T save(T t) {
-        return save(t);
-    }
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	default public T save(T t) {
+		return getDao().save(t);
+	}
 
     /**
      *
      * @param id
      */
-    default public void deleteById(Long id) {
+    default public void deleteById(Long id){
         Optional<T> t = getDao().findById(id);
         t.ifPresent(entity -> getDao().delete(entity));
     }
@@ -51,7 +51,7 @@ public interface SuperRestService<T> {
      *
      * @param t
      */
-    default public void delete(T t) {
+    default public void delete(T t){
         getDao().delete(t);
     }
 }

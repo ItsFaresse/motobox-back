@@ -1,8 +1,12 @@
 package com.hoc.motobox.entity.subcategory;
 
-import com.hoc.motobox.entity.Ad;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+
 import com.hoc.motobox.entity.category.Cables;
 
+@Entity
 public class CableAccelerateur extends Cables {
 
 	public CableAccelerateur(Ad json) {
