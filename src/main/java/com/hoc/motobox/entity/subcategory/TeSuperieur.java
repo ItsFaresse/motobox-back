@@ -1,0 +1,13 @@
+package com.hoc.motobox.entity.subcategory;
+
+import com.hoc.motobox.entity.Ad;
+import com.hoc.motobox.entity.category.Fourche;
+
+public class TeSuperieur extends Fourche {
+
+	public TeSuperieur(Ad json) {
+		super(json);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,16 +1,16 @@
 package com.hoc.motobox.utils;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @param <T>
  */
 public interface SuperRestService<T> {
-    public JpaRepository<T, Long> getDao();
+	public JpaRepository<T, Long> getDao();
 
     /**
      *
@@ -29,14 +29,14 @@ public interface SuperRestService<T> {
         return getDao().findById(id);
     }
 
-    /**
-     * 
-     * @param t
-     * @return
-     */
-    default public  T save(T t){
-        return save(t);
-    }
+	/**
+	 * 
+	 * @param t
+	 * @return
+	 */
+	default public T save(T t) {
+		return getDao().save(t);
+	}
 
     /**
      *

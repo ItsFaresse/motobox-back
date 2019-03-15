@@ -1,24 +1,18 @@
 package com.hoc.motobox.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hoc.motobox.entity.User;
-import com.hoc.motobox.service.UserService;
+import com.hoc.motobox.utils.SuperController;
+import com.hoc.motobox.utils.SuperRestService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends SuperController<User> {
 
-    @Autowired
-    UserService userService;
-
-    @PostMapping("")
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserController(SuperRestService<User> service) {
+        super(service);
     }
 
 }
