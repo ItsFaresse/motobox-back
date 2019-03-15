@@ -3,6 +3,8 @@ package com.hoc.motobox.entity;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.hoc.motobox.utils.SuperEntity;
@@ -24,8 +26,14 @@ public class User extends SuperEntity {
 
     private String phone;
 
+    private boolean enabled;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "role", nullable = true)
+    private Role role;
 
     /**
      * @return the email
