@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieCycle;
 
 public abstract class FreinArriere extends PartieCycle {
 
-	public FreinArriere(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

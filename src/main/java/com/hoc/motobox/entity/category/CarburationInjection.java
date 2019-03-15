@@ -5,9 +5,6 @@ import com.hoc.motobox.entity.family.PartieMoteur;
 
 public abstract class CarburationInjection extends PartieMoteur {
 
-	public CarburationInjection(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
+
 
 }

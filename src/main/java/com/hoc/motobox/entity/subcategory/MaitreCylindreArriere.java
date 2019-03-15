@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.category.FreinArriere;
 
 public class MaitreCylindreArriere extends FreinArriere {
 
-	public MaitreCylindreArriere(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

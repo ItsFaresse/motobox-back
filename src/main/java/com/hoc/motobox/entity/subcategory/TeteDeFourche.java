@@ -5,9 +5,4 @@ import com.hoc.motobox.entity.category.CarenageDivers;
 
 public class TeteDeFourche extends CarenageDivers {
 
-	public TeteDeFourche(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

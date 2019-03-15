@@ -5,9 +5,4 @@ import com.hoc.motobox.entity.category.Reservoir;
 
 public class JaugeAEssence extends Reservoir {
 
-	public JaugeAEssence(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

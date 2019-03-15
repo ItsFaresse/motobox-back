@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.Selle;
 @Entity
 public class CapotDeSelle extends Selle {
 
-	public CapotDeSelle(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

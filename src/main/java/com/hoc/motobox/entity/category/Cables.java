@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieMoteur;
 
 public abstract class Cables extends PartieMoteur {
 
-	public Cables(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

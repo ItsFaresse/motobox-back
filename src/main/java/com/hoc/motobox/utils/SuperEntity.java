@@ -51,7 +51,6 @@ public abstract class SuperEntity{
         this.setCreatedAt(new Date());
     }
 
-    @PrePersist
     @PreUpdate
     void onUpdate(){
         this.setUpdatedAt(new Date());

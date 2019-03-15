@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.AmortisseurArriere;
 @Entity
 public class AmortisseurComplet extends AmortisseurArriere {
 
-	public AmortisseurComplet(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

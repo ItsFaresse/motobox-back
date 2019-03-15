@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieElectrique;
 
 public abstract class SerrureKitNeiman extends PartieElectrique {
 
-	public SerrureKitNeiman(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

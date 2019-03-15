@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.Compteur;
 @Entity
 public class CableCompteur extends Compteur {
 
-	public CableCompteur(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

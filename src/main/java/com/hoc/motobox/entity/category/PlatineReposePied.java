@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieCycle;
 
 public abstract class PlatineReposePied extends PartieCycle {
 
-	public PlatineReposePied(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

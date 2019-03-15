@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.Jantes;
 @Entity
 public class AxeDeRoueAvant extends Jantes {
 
-	public AxeDeRoueAvant(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }
