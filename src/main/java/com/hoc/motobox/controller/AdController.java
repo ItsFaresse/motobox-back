@@ -5,6 +5,7 @@ import com.hoc.motobox.utils.SuperRestService;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -114,5 +115,20 @@ public class AdController extends SuperController<Ad> {
 
 		return json;
 	}
+
+
+	public Ad seachPieceByName(String pieceSearch, @RequestBody Ad json ){
+
+	    List<Ad> ads = service.findAll();
+        List<Ad> adList = new ArrayList<>();
+
+        for( Ad ad : ads) {
+            String pieceName = ad.getTitle();
+            if (pieceName.contains(pieceSearch)) {
+                adList.add(ad);
+            }
+        }
+	    return json;
+    }
 
 }

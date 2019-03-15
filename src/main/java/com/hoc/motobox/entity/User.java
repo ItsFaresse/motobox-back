@@ -27,9 +27,6 @@ public class User extends SuperEntity {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Cart cart;
-
     /**
      * @return the email
      */
@@ -114,11 +111,4 @@ public class User extends SuperEntity {
         this.address = address;
     }
 
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
 }
