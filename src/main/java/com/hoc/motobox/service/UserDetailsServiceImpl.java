@@ -31,15 +31,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         com.hoc.motobox.entity.User user = userRepository.findByEmail(email);
         if (user == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("User Does not Exist");
         }
-        return new User(user.getEmail(), user.getPassword(), user.isEnabled(), true, true, true,
-                getAuthorities(user.getRole()));
+        return new User(user.getEmail(), user.getPassword(), true, true, true, true, getAuthorities(user.getRole()));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Role role) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(role.getName()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
         return authorities;
     }
 

@@ -39,7 +39,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         try {
             com.hoc.motobox.entity.User creds = new ObjectMapper().readValue(req.getInputStream(),
                     com.hoc.motobox.entity.User.class);
-
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
