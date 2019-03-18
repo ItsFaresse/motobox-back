@@ -44,6 +44,7 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
 		}
 		User createUser = new User();
 
+
         createUser.setEmail(user.getEmail());
         createUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         createUser.setFirstName(user.getFirstName());

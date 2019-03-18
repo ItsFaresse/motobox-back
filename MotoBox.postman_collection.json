@@ -12,10 +12,17 @@
 					"name": "add user",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"email\": \"tareq12@jean.fr\",\n\t\"password\": \"1234\",\n\t\"firstName\": \"Jean\",\n\t\"lastName\": \"Marie\",\n\t\"role\":{\n\t\t\"name\":\"JUNKYARD\"\n\t},\n\t\"address\": {\n\t\t\"street\": \"rue test\",\n\t\t\"number\": \"1\",\n\t\t\"city\": \"Lyon\",\n\t\t\"postal_code\": 69000\n\t},\n\t\"phone\": \"0231566699\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/user",
@@ -31,12 +38,32 @@
 				},
 				{
 					"name": "get User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqZWFuQGplYW4uZnIiLCJleHAiOjE1NTM0MTY3MDB9.LFEzvUveJYZ6sMn2_usXO8hNujWtb5R4v_q8xBvJNI3YJLt4wsBEhObxyUqliZXK56SFtlH2lJ6RP83derDM_g",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"id\":\"1\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/user/1",
@@ -124,13 +151,30 @@
 			"name": "Ad",
 			"item": [
 				{
-					"name": "add ad",
+					"name": "user add ad",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlcTEyQGplYW4uZnIiLCJleHAiOjE1NTM3NzQ0ODB9.98R5flBkMXUrfUn28yeEHapmKbqwORkvsN-mnJJ43svypBxN3zXeS-HQ5h5w5Ii_Md7UsdeguCS44-ZixeFylA",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"title\" : \"titre annonce\",\n\t\"description\" : \"desc annonce\",\n\t\"model\" : \"model de tes morts\",\n\t\"brand\" : \"le brand ouaich\",\n\t\"year\" : \"2019\",\n\t\"price\" : \"50e\",\n\t\"location\" : \"Lyon\",\n\t\"imageUrl\" : \"http://url.fr\",\n\t\"category\" : \"Boucle arrière\",\n\t\"is_active\" : true\n}"
 						},
 						"url": {
 							"raw": "{{url}}/ad",
@@ -145,8 +189,18 @@
 					"response": []
 				},
 				{
-					"name": "get ad",
+					"name": "user  get ad",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlcTEyQGplYW4uZnIiLCJleHAiOjE1NTM3NzQ0ODB9.98R5flBkMXUrfUn28yeEHapmKbqwORkvsN-mnJJ43svypBxN3zXeS-HQ5h5w5Ii_Md7UsdeguCS44-ZixeFylA",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -154,42 +208,59 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/ad/1",
+							"raw": "{{url}}user/ad/5",
 							"host": [
-								"{{url}}"
+								"{{url}}user"
 							],
 							"path": [
 								"ad",
-								"1"
+								"5"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "update ad",
+					"name": "user update ad",
 					"request": {
-						"method": "PUT",
-						"header": [],
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlcUBqZWFuLmZyIiwiZXhwIjoxNTUzNTI1MzkyfQ.T05tTLdULOpcDbkYkYkVdUaM-hey5YwSzW8zvH4Rz0gX1TDCd3T8ITXmyD9h5z4qDl6gYDTRbPB09ncRG8Hgww",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"title\" : \"GJHKFK\",\n\t\"description\" : \"desc annonce\",\n\t\"model\" : \"model de tes morts\",\n\t\"brand\" : \"le brand ouaich\",\n\t\"year\" : \"2019\",\n\t\"price\" : \"50e\",\n\t\"location\" : \"Lyon\",\n\t\"imageUrl\" : \"http://url.fr\",\n\t\"category\" : \"Cadre\",\n\t\"is_active\" : true\n}"
 						},
 						"url": {
-							"raw": "{{url}}/ad/1",
+							"raw": "{{url}}user/ad/3",
 							"host": [
-								"{{url}}"
+								"{{url}}user"
 							],
 							"path": [
 								"ad",
-								"1"
+								"3"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "delete ad",
+					"name": "user delete ad",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -198,13 +269,82 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}/ad/1",
+							"raw": "{{url}}user/ad/1",
 							"host": [
-								"{{url}}"
+								"{{url}}user"
 							],
 							"path": [
 								"ad",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all ads",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/ads",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get ad by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/ads/8",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ads",
+								"8"
 							]
 						}
 					},
@@ -339,11 +479,21 @@
 				{
 					"name": "login",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": ""
+							"raw": "{\n\t\"email\": \"tareq12@jean.fr\",\n\t\"password\": \"1234\"\n}"
 						},
 						"url": {
 							"raw": "{{url}}/login",
@@ -379,6 +529,123 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "upload files",
+			"item": [
+				{
+					"name": "upload file",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqZWFuQGplYW4uZnIiLCJleHAiOjE1NTM0MTY3MDB9.LFEzvUveJYZ6sMn2_usXO8hNujWtb5R4v_q8xBvJNI3YJLt4wsBEhObxyUqliZXK56SFtlH2lJ6RP83derDM_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/uploadFile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload files",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlcTEyQGplYW4uZnIiLCJleHAiOjE1NTM3NzQ0ODB9.98R5flBkMXUrfUn28yeEHapmKbqwORkvsN-mnJJ43svypBxN3zXeS-HQ5h5w5Ii_Md7UsdeguCS44-ZixeFylA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": ""
+								},
+								{
+									"key": "files",
+									"type": "file",
+									"src": ""
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/uploadMultipleFiles",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"uploadMultipleFiles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YXJlcUBqZWFuLmZyIiwiZXhwIjoxNTUzNTIwNTg3fQ.w1KLjvFdxuPPrkUhUG56VRI9kkw09L162Tuz65UoWw-MavGwl-pUKRnS9JkE7UhQrfHRwubT25tzpzgqRt61jA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/ad/test/test",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"ad",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
