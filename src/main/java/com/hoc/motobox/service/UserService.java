@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.hoc.motobox.entity.Ad;
+import com.hoc.motobox.entity.Role;
 import com.hoc.motobox.entity.User;
 import com.hoc.motobox.repository.RoleRepository;
 import com.hoc.motobox.repository.UserRepository;
@@ -45,15 +44,21 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
 		}
 		User createUser = new User();
 
-		createUser.setEmail(user.getEmail());
-		createUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		createUser.setFirstName(user.getFirstName());
-		createUser.setLastName(user.getLastName());
-		createUser.setPhone(user.getPhone());
-		createUser.setAddress(user.getAddress());
-		if (user.getRole() != null) {
-			createUser.setRole(roleReposytory.findByName(user.getRole().getName()));
-		}
+
+        createUser.setEmail(user.getEmail());
+        createUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        createUser.setFirstName(user.getFirstName());
+        createUser.setLastName(user.getLastName());
+        createUser.setPhone(user.getPhone());
+        createUser.setAddress(user.getAddress());
+        
+        Role userRole;
+        if (user.getRole() != null) {
+        	userRole = roleReposytory.findByName(user.getRole().getName());
+        } else {
+        	userRole = roleReposytory.findByName("USER");
+        }
+        createUser.setRole(userRole);
 
 		return userRepository.save(createUser);
 
