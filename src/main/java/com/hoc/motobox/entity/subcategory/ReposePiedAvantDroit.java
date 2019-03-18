@@ -5,9 +5,4 @@ import com.hoc.motobox.entity.category.PlatineReposePied;
 
 public class ReposePiedAvantDroit extends PlatineReposePied {
 
-	public ReposePiedAvantDroit(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

@@ -5,9 +5,4 @@ import com.hoc.motobox.entity.family.PartieCycle;
 
 public abstract class Jantes extends PartieCycle {
 
-	public Jantes(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

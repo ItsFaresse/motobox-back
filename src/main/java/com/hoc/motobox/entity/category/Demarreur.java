@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieMoteur;
 
 public abstract class Demarreur extends PartieMoteur {
 
-	public Demarreur(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

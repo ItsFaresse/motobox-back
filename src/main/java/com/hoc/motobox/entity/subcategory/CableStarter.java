@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.Cables;
 @Entity
 public class CableStarter extends Cables {
 
-	public CableStarter(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

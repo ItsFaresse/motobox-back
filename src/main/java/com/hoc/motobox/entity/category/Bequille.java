@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieCycle;
 
 public abstract class Bequille extends PartieCycle {
 
-	public Bequille(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

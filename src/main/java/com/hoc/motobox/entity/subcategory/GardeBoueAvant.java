@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.category.GardeBoue;
 
 public class GardeBoueAvant extends GardeBoue {
 
-	public GardeBoueAvant(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

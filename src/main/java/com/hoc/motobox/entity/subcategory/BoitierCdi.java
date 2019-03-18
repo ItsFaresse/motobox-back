@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.FaisceauxElectriques;
 @Entity
 public class BoitierCdi extends FaisceauxElectriques {
 
-	public BoitierCdi(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

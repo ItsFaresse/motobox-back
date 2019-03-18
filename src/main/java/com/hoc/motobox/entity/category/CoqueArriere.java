@@ -5,9 +5,4 @@ import com.hoc.motobox.entity.family.PartieHabillage;
 
 public abstract class CoqueArriere extends PartieHabillage {
 
-	public CoqueArriere(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

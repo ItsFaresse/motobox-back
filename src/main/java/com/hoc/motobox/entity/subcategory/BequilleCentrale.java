@@ -9,9 +9,5 @@ import com.hoc.motobox.entity.category.Bequille;
 @Entity
 public class BequilleCentrale extends Bequille {
 
-	public BequilleCentrale(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

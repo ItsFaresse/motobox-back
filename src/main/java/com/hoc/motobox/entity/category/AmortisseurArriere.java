@@ -5,9 +5,6 @@ import com.hoc.motobox.entity.family.PartieCycle;
 
 public abstract class AmortisseurArriere extends PartieCycle {
 
-	public AmortisseurArriere(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
+
 
 }

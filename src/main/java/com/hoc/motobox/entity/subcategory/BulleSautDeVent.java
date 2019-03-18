@@ -9,9 +9,4 @@ import com.hoc.motobox.entity.category.CarenageDivers;
 @Entity
 public class BulleSautDeVent extends CarenageDivers {
 
-	public BulleSautDeVent(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
-
 }

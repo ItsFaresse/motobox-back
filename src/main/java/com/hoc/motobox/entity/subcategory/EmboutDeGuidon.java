@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.category.Guidon;
 
 public class EmboutDeGuidon extends Guidon {
 
-	public EmboutDeGuidon(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }

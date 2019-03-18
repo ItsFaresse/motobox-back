@@ -5,9 +5,5 @@ import com.hoc.motobox.entity.family.PartieElectrique;
 
 public abstract class BobineAllumage extends PartieElectrique {
 
-	public BobineAllumage(Ad json) {
-		super(json);
-		// TODO Auto-generated constructor stub
-	}
 
 }
