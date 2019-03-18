@@ -23,7 +23,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         if (alreadySetup) {
             return;
         }
-        createRoleIfNotFound("ROLE_JUNKYARD");
+        createRoleIfNotFound("JUNKYARD");
+        createRoleIfNotFound("USER");
         alreadySetup = true;
 
     }

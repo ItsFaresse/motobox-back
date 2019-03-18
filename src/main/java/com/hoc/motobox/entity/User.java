@@ -26,8 +26,6 @@ public class User extends SuperEntity {
 
     private String phone;
 
-    private boolean enabled;
-
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
 
@@ -117,14 +115,6 @@ public class User extends SuperEntity {
      */
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 
     public Role getRole() {
