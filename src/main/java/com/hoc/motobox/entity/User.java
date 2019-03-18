@@ -32,7 +32,7 @@ public class User extends SuperEntity {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "role", nullable = true)
     private Role role;
-
+    
     /**
      * @return the email
      */

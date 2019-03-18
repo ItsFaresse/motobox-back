@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.hoc.motobox.entity.Role;
 import com.hoc.motobox.entity.User;
 import com.hoc.motobox.repository.RoleRepository;
 import com.hoc.motobox.repository.UserRepository;
@@ -50,9 +51,14 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
         createUser.setLastName(user.getLastName());
         createUser.setPhone(user.getPhone());
         createUser.setAddress(user.getAddress());
+        
+        Role userRole;
         if (user.getRole() != null) {
-            createUser.setRole(roleReposytory.findByName(user.getRole().getName()));
+        	userRole = roleReposytory.findByName(user.getRole().getName());
+        } else {
+        	userRole = roleReposytory.findByName("USER");
         }
+        createUser.setRole(userRole);
 
         return userRepository.save(createUser);
 

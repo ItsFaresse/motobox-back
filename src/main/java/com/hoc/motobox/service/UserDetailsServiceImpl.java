@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.hoc.motobox.entity.Role;
+import com.hoc.motobox.repository.RoleRepository;
 import com.hoc.motobox.repository.UserRepository;
 
 @Service
@@ -22,6 +23,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RoleRepository roleRepository;
+    
     public UserDetailsServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
 
@@ -30,15 +34,21 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         com.hoc.motobox.entity.User user = userRepository.findByEmail(email);
+       
         if (user == null) {
             throw new UsernameNotFoundException("User Does not Exist");
         }
-        return new User(user.getEmail(), user.getPassword(), true, true, true, true, getAuthorities(user.getRole()));
+        
+        Role userRole = user.getRole();
+
+        return new User(user.getEmail(), user.getPassword(), true, true, true, true, getAuthorities(userRole));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Role role) {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
+        String roleName = role.getName();
+ 
+        authorities.add(new SimpleGrantedAuthority("ROLE_" + roleName));
         return authorities;
     }
 
