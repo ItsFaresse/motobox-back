@@ -51,7 +51,7 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
         createUser.setPhone(user.getPhone());
         createUser.setAddress(user.getAddress());
         if (user.getRole() != null) {
-            createUser.setRole(roleReposytory.findByName("JUNKYARD"));
+            createUser.setRole(roleReposytory.findByName(user.getRole().getName()));
         }
 
         return userRepository.save(createUser);

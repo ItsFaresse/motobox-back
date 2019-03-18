@@ -16,7 +16,7 @@ public class Role extends SuperEntity {
     @Column(unique = true)
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role", fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role", fetch = FetchType.EAGER, orphanRemoval = true)
     @Column(name = "users", nullable = true)
     private Collection<User> users;
 
