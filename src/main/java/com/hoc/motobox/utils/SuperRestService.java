@@ -12,22 +12,23 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface SuperRestService<T> {
 	public JpaRepository<T, Long> getDao();
 
-    /**
-     *
-     * @return
-     */
-    default  public List<T> findAll(){
-        return getDao().findAll();
-    }
+	/**
+	 *
+	 * @return
+	 */
+	default public List<T> findAll() {
+		return getDao().findAll();
+	}
 
-    /**
-     * Permet de trouver un élément par son id si la méthod existe dans le service d
-     * @param id
-     * @return @override function findById() si n'est pas trouvé
-     */
-    default public Optional<T> findById(Long id){
-        return getDao().findById(id);
-    }
+	/**
+	 * Permet de trouver un élément par son id si la méthod existe dans le service d
+	 * 
+	 * @param id
+	 * @return @override function findById() si n'est pas trouvé
+	 */
+	default public Optional<T> findById(Long id) {
+		return getDao().findById(id);
+	}
 
 	/**
 	 * 
@@ -38,20 +39,20 @@ public interface SuperRestService<T> {
 		return getDao().save(t);
 	}
 
-    /**
-     *
-     * @param id
-     */
-    default public void deleteById(Long id){
-        Optional<T> t = getDao().findById(id);
-        t.ifPresent(entity -> getDao().delete(entity));
-    }
+	/**
+	 *
+	 * @param id
+	 */
+	default public void deleteById(Long id) {
+		Optional<T> t = getDao().findById(id);
+		t.ifPresent(entity -> getDao().delete(entity));
+	}
 
-    /**
-     *
-     * @param t
-     */
-    default public void delete(T t){
-        getDao().delete(t);
-    }
+	/**
+	 *
+	 * @param t
+	 */
+	default public void delete(T t) {
+		getDao().delete(t);
+	}
 }

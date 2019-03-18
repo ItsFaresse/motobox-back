@@ -6,6 +6,9 @@ import com.hoc.motobox.utils.SuperRestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -14,19 +17,20 @@ public class AdService implements SuperRestService<Ad> {
 
 	@Autowired
 	private AdRepository adRepository;
+	
+	@Override
+	public JpaRepository<Ad, Long> getDao() {
+		return adRepository;
+	}
 
-    @Override
-    public JpaRepository<Ad, Long> getDao() {
-        return adRepository;
-    }
-
-    public Ad loadAdsByTitle(String searchTitle) throws Exception{
-        Ad ad = adRepository.findAdsByTitleContains(searchTitle);
-        if(ad == null){
-            throw new Exception(searchTitle);
-        }
-        //return new Ad(ad.getTitle(), ad.getCategory());
-        return ad;
-    }
+	public Ad loadAdsByTitle(String searchTitle) throws Exception {
+		Ad ad = adRepository.findAdsByTitleContains(searchTitle);
+		if (ad == null) {
+			throw new Exception(searchTitle);
+		}
+		// return new Ad(ad.getTitle(), ad.getCategory());
+		return ad;
+	}
+	
 
 }
