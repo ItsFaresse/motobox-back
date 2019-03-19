@@ -17,7 +17,7 @@ public class AdService implements SuperRestService<Ad> {
 
 	@Autowired
 	private AdRepository adRepository;
-	
+
 	@Override
 	public JpaRepository<Ad, Long> getDao() {
 		return adRepository;
@@ -31,6 +31,5 @@ public class AdService implements SuperRestService<Ad> {
 		// return new Ad(ad.getTitle(), ad.getCategory());
 		return ad;
 	}
-	
 
 }

@@ -1,9 +1,11 @@
 package com.hoc.motobox.entity.category;
 
-import com.hoc.motobox.entity.Ad;
+import javax.persistence.Entity;
+
 import com.hoc.motobox.entity.family.PartieElectrique;
 
-public abstract class Alternateur extends PartieElectrique {
+@Entity
+public  class Alternateur extends PartieElectrique {
 
 
 }

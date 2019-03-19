@@ -1,9 +1,10 @@
 package com.hoc.motobox.entity.category;
 
-import com.hoc.motobox.entity.Ad;
-import com.hoc.motobox.entity.family.PartieElectrique;
+import javax.persistence.Entity;
 
-public abstract class BobineAllumage extends PartieElectrique {
+import com.hoc.motobox.entity.family.PartieElectrique;
+@Entity
+public class BobineAllumage extends PartieElectrique {
 
 
 }
