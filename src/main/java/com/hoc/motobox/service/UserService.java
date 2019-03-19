@@ -39,6 +39,8 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
 	public User save(User user) throws EntityExistsException {
 		LOGGER.debug("create user {}", user);
 
+
+		
 		if (emailExists(user.getEmail())) {
 			throw new EntityExistsException("There is an account with that email adress: " + user.getEmail());
 		}
@@ -59,6 +61,7 @@ public class UserService extends InitialDataLoader implements SuperRestService<U
         	userRole = roleReposytory.findByName("USER");
         }
         createUser.setRole(userRole);
+
 
 		return userRepository.save(createUser);
 
